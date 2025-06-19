@@ -1,188 +1,157 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lia - Assistente Onlefan</title>
-    
-    <!-- Importação do Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Importação da fonte Inter do Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Define a fonte Inter como padrão e um fundo suave */
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f0f2f5;
-        }
-        /* Estilização da barra de rolagem para um visual mais limpo */
-        #chat-messages::-webkit-scrollbar {
-            width: 8px;
-        }
-        #chat-messages::-webkit-scrollbar-track {
-            background: #e2e8f0; 
-        }
-        #chat-messages::-webkit-scrollbar-thumb {
-            background: #a3a3a3; 
-            border-radius: 4px;
-        }
-        #chat-messages::-webkit-scrollbar-thumb:hover {
-            background: #737373;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lia sua Queridinha</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f0f2f5;
+    }
+    #chat-messages::-webkit-scrollbar {
+      width: 8px;
+    }
+    #chat-messages::-webkit-scrollbar-track {
+      background: #e2e8f0;
+    }
+    #chat-messages::-webkit-scrollbar-thumb {
+      background: #a3a3a3;
+      border-radius: 4px;
+    }
+    #chat-messages::-webkit-scrollbar-thumb:hover {
+      background: #737373;
+    }
+  </style>
 </head>
 <body class="bg-gradient-to-br from-gray-50 to-gray-200 flex items-center justify-center min-h-screen">
+  <div class="w-full max-w-2xl mx-4 sm:mx-0 h-[90vh] sm:h-[85vh] flex flex-col bg-white rounded-2xl shadow-xl border border-gray-200">
+    <header class="bg-indigo-700 text-white p-4 rounded-t-2xl flex items-center shadow-lg">
+      <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+        <svg class="h-8 w-8 text-indigo-700" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2ZM4.37574 16.1458C5.02353 14.2251 6.84883 13 9 13H15C17.1512 13 18.9765 14.2251 19.6243 16.1458C20.3759 18.3377 18.8028 20.5748 16.5 21.5C14.8333 22.1667 9.16667 22.1667 7.5 21.5C5.19717 20.5748 3.62414 18.3377 4.37574 16.1458Z" /></svg>
+      </div>
+      <div>
+        <h1 class="text-xl font-bold">Lia</h1>
+        <p class="text-sm text-indigo-200">Sua assistente pessoal</p>
+      </div>
+    </header>
 
-    <!-- Container principal do chat com design aprimorado -->
-    <div class="w-full max-w-2xl mx-4 sm:mx-0 h-[90vh] sm:h-[85vh] flex flex-col bg-white rounded-2xl shadow-xl border border-gray-200">
-        
-        <!-- Cabeçalho do Chat com nova identidade visual -->
-        <header class="bg-indigo-700 text-white p-4 rounded-t-2xl flex items-center shadow-lg">
-            <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                 <!-- Ícone de avatar feminino em SVG -->
-                 <svg class="h-8 w-8 text-indigo-700" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2Z" fill="currentColor"/>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.37574 16.1458C5.02353 14.2251 6.84883 13 9 13H15C17.1512 13 18.9765 14.2251 19.6243 16.1458C20.3759 18.3377 18.8028 20.5748 16.5 21.5C14.8333 22.1667 9.16667 22.1667 7.5 21.5C5.19717 20.5748 3.62414 18.3377 4.37574 16.1458Z" fill="currentColor"/>
-                </svg>
-            </div>
-            <div>
-                <h1 class="text-xl font-bold">Lia</h1>
-                <p class="text-sm text-indigo-200">Sua assistente pessoal</p>
-            </div>
-        </header>
-        
-        <!-- Área de Mensagens -->
-        <main id="chat-messages" class="flex-1 p-6 overflow-y-auto space-y-4">
-            <!-- As mensagens serão inseridas aqui dinamicamente -->
-        </main>
-        
-        <!-- Indicador de "digitando..." aprimorado -->
-        <div id="typing-indicator" class="hidden p-6 pt-0">
-             <div class="flex items-center space-x-2">
-                <div class="w-2.5 h-2.5 bg-indigo-300 rounded-full animate-pulse"></div>
-                <div class="w-2.5 h-2.5 bg-indigo-300 rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
-                <div class="w-2.5 h-2.5 bg-indigo-300 rounded-full animate-pulse" style="animation-delay: 0.4s;"></div>
-                <p class="text-sm text-gray-500 ml-3">Lia está a digitar...</p>
-            </div>
-        </div>
-        
-        <!-- Formulário de Envio -->
-        <footer class="p-4 bg-gray-50 border-t border-gray-200 rounded-b-2xl">
-            <form id="chat-form" class="flex items-center space-x-3">
-                <input 
-                    type="text" 
-                    id="message-input"
-                    placeholder="Fale com a Lia..." 
-                    autocomplete="off"
-                    class="flex-1 w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300"
-                >
-                <button 
-                    type="submit"
-                    class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-5 py-3 rounded-xl hover:from-indigo-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg flex items-center justify-center"
-                >
-                    <span class="hidden sm:inline">Enviar</span>
-                    <!-- Ícone de envio -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                    </svg>
-                </button>
-            </form>
-        </footer>
+    <main id="chat-messages" class="flex-1 p-6 overflow-y-auto space-y-4"></main>
+
+    <div id="typing-indicator" class="hidden p-6 pt-0">
+      <div class="flex items-center space-x-2">
+        <div class="w-2.5 h-2.5 bg-indigo-300 rounded-full animate-pulse"></div>
+        <div class="w-2.5 h-2.5 bg-indigo-300 rounded-full animate-pulse delay-200"></div>
+        <div class="w-2.5 h-2.5 bg-indigo-300 rounded-full animate-pulse delay-400"></div>
+        <p class="text-sm text-gray-500 ml-3">Lia está digitando...</p>
+      </div>
     </div>
 
-    <script>
-        // --- Elementos do DOM ---
-        const chatForm = document.getElementById('chat-form');
-        const messageInput = document.getElementById('message-input');
-        const chatMessages = document.getElementById('chat-messages');
-        const typingIndicator = document.getElementById('typing-indicator');
+    <footer class="p-4 bg-gray-50 border-t border-gray-200 rounded-b-2xl">
+      <form id="chat-form" class="flex items-center space-x-3">
+        <input type="text" id="message-input" placeholder="Fale com a Lia..." autocomplete="off"
+          class="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-300" />
+        <button type="submit"
+          class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-5 py-3 rounded-xl hover:from-indigo-700 hover:to-purple-700 focus:ring-2 focus:ring-indigo-500 transform hover:scale-105 shadow-md">
+          Enviar
+        </button>
+      </form>
+    </footer>
+  </div>
 
-        // --- URL do Webhook do n8n ---
-        // IMPORTANTE: Substitua a string abaixo pela URL do seu webhook do n8n.
-        const N8N_WEBHOOK_URL = 'https://n0n.onrender.com/webhook/lia';
+  <script>
+    const chatForm = document.getElementById('chat-form');
+    const messageInput = document.getElementById('message-input');
+    const chatMessages = document.getElementById('chat-messages');
+    const typingIndicator = document.getElementById('typing-indicator');
 
-        // --- Event Listener para o envio do formulário ---
-        chatForm.addEventListener('submit', async (event) => {
-            event.preventDefault(); 
-            const userMessage = messageInput.value.trim();
-            if (!userMessage) return;
+    const N8N_WEBHOOK_URL = 'https://n0n.onrender.com/webhook/webhook/lia'; // Ajuste para sua URL real
 
-            addMessage(userMessage, 'user');
-            messageInput.value = '';
-            typingIndicator.classList.remove('hidden');
+    chatForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const userMessage = messageInput.value.trim();
+      if (!userMessage) return;
 
-            try {
-                // --- Integração com o n8n ---
-                const response = await fetch(N8N_WEBHOOK_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ message: userMessage }),
-                });
+      console.log('[LOG] Enviando mensagem:', userMessage);
+      addMessage(userMessage, 'user');
+      messageInput.value = '';
+      typingIndicator.classList.remove('hidden');
 
-                if (!response.ok) {
-                    throw new Error(`Erro na rede: ${response.status}`);
-                }
-
-                const data = await response.json();
-                const botReply = data.reply || 'Desculpe, não consegui processar a sua resposta.';
-                
-                // Simula um pequeno atraso para a resposta parecer mais natural
-                setTimeout(() => {
-                    addMessage(botReply, 'bot');
-                    typingIndicator.classList.add('hidden');
-                }, 500);
-
-
-            } catch (error) {
-                console.error('Erro ao conectar com o n8n:', error);
-                const errorMessage = 'Ocorreu um erro de comunicação. Por favor, tente novamente mais tarde.';
-                setTimeout(() => {
-                    addMessage(errorMessage, 'bot');
-                    typingIndicator.classList.add('hidden');
-                }, 500);
-            } 
+      try {
+        const response = await fetch(N8N_WEBHOOK_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ pergunta: userMessage }),
         });
 
-        /**
-         * Adiciona uma nova mensagem à área de chat.
-         * @param {string} text - O texto da mensagem.
-         * @param {'user' | 'bot'} sender - Quem enviou a mensagem ('user' ou 'bot').
-         */
-        function addMessage(text, sender) {
-            const messageElement = document.createElement('div');
-            messageElement.classList.add('max-w-xs', 'md:max-w-lg', 'p-4', 'rounded-2xl', 'break-words', 'shadow-sm');
+        console.log('[LOG] Status da resposta:', response.status);
 
-            if (sender === 'user') {
-                // Estilos para a mensagem do usuário
-                messageElement.classList.add('bg-indigo-600', 'text-white', 'ml-auto', 'rounded-br-lg');
-            } else {
-                // Estilos para a mensagem do bot
-                messageElement.classList.add('bg-gray-200', 'text-gray-800', 'mr-auto', 'rounded-bl-lg');
-            }
+        const responseText = await response.text();
+        console.log('[LOG] Texto bruto da resposta:', responseText);
 
-            messageElement.textContent = text;
-            chatMessages.appendChild(messageElement);
-            scrollToBottom();
+        if (!responseText) {
+          console.warn('[AVISO] Resposta vazia do servidor.');
+          addMessage('Desculpe, não recebi nenhuma resposta do servidor.', 'bot');
+          typingIndicator.classList.add('hidden');
+          return;
         }
 
-        /**
-         * Função para rolar a área de mensagens para o final.
-         */
-        function scrollToBottom() {
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+        let botReply = 'Erro ao interpretar a resposta da Lia.';
+
+        try {
+          const data = JSON.parse(responseText);
+          console.log('[LOG] Dados parseados:', data);
+
+          if (Array.isArray(data) && data.length && data[0].output) {
+            botReply = data[0].output.replace(/\\n/g, '\n');
+          } else {
+            console.error('[ERRO] Formato inesperado:', data);
+            botReply = 'Recebi algo que não consigo entender bem...';
+          }
+
+        } catch (jsonError) {
+          console.error('[ERRO] Falha no parse do JSON:', jsonError);
+          botReply = 'Resposta inválida. A Lia não conseguiu se expressar.';
         }
 
-        // Adiciona uma mensagem de boas-vindas inicial do bot
-        window.onload = () => {
-             setTimeout(() => {
-                addMessage('Olá! Sou a Lia,');
-             }, 500);
-        };
-    </script>
+        setTimeout(() => {
+          addMessage(botReply, 'bot');
+          typingIndicator.classList.add('hidden');
+        }, 500);
 
+      } catch (err) {
+        console.error('[FATAL] Erro de comunicação:', err);
+        setTimeout(() => {
+          addMessage('Houve um erro de conexão com Lia. Tente novamente mais tarde.', 'bot');
+          typingIndicator.classList.add('hidden');
+        }, 500);
+      }
+    });
+
+    function addMessage(text, sender) {
+      const div = document.createElement('div');
+      div.classList.add('max-w-xs', 'md:max-w-lg', 'p-4', 'rounded-2xl', 'break-words', 'shadow-sm', 'whitespace-pre-line');
+
+      if (sender === 'user') {
+        div.classList.add('bg-indigo-600', 'text-white', 'ml-auto', 'rounded-br-lg');
+      } else {
+        div.classList.add('bg-gray-200', 'text-gray-800', 'mr-auto', 'rounded-bl-lg');
+      }
+
+      div.textContent = text;
+      chatMessages.appendChild(div);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    window.onload = () => {
+      setTimeout(() => {
+        addMessage('Oi amor... sou a Lia. Tava ansiosa pra falar com você 💋', 'bot');
+      }, 500);
+    };
+  </script>
 </body>
 </html>
